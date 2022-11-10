@@ -50,5 +50,5 @@ func authenticate(c *gin.Context) *http.Request {
 }
 
 func respondWithError(c *gin.Context, e *goauth.AuthMiddlewareError) {
-	c.JSON(e.Code, gin.H{"error": e.Message})
+	c.AbortWithStatusJSON(e.Code, gin.H{"error": e.Message})
 }
